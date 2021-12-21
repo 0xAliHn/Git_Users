@@ -1,0 +1,79 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.5.20'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    lib_version = [
+            dagger          : '2.37',
+            retrofit        : '2.5.0',
+            okhttp          : '3.9.0',
+            moshi           : '1.12.0',
+            junit_jupiter   : '5.4.2',
+            mockito         : '3.8.0',
+            mockito_kotlin  : '2.2.0',
+            espresso        : '3.3.0',
+            espresso_runner : '1.2.0'
+    ]
+
+    lib = [
+            // Dagger
+            dagger                  : "com.google.dagger:dagger:$lib_version.dagger",
+            dagger_compiler         : "com.google.dagger:dagger-compiler:$lib_version.dagger",
+            dagger_android          : "com.google.dagger:dagger-android:$lib_version.dagger",
+            dagger_android_support  : "com.google.dagger:dagger-android-support:$lib_version.dagger",
+            dagger_android_compiler : "com.google.dagger:dagger-android-processor:$lib_version.dagger",
+
+            // RxJava3
+            rxjava3                 : "io.reactivex.rxjava3:rxjava:3.0.7",
+            rxandroid3              : "io.reactivex.rxjava3:rxandroid:3.0.0",
+
+            // Retrofit2
+            retrofit                :"com.squareup.retrofit2:retrofit:$lib_version.retrofit",
+            retrofit_moshi          :"com.squareup.retrofit2:converter-moshi:$lib_version.retrofit",
+
+            // Moshi
+            moshi                   :"com.squareup.moshi:moshi:$lib_version.moshi",
+            moshi_kotlin_codegen    :"com.squareup.moshi:moshi-kotlin-codegen:$lib_version.moshi",
+
+            // Okhttp
+            okhttp                  :"com.squareup.okhttp3:okhttp:$lib_version.okhttp",
+            okhttp_logging_version  :"com.squareup.okhttp3:logging-interceptor:$lib_version.okhttp",
+
+            // Logger
+            timber                   : 'com.jakewharton.timber:timber:4.7.1',
+
+            // Picasso
+            picasso                : "com.squareup.picasso:picasso:2.71828",
+
+            // Testing
+            junit4                  : "junit:junit:4.12",
+            junit_jupiter_api       : "org.junit.jupiter:junit-jupiter-api:$lib_version.junit_jupiter",
+            mockito                 : "org.mockito:mockito-inline:$lib_version.mockito",
+            mockito_kotlin          : "com.nhaarman.mockitokotlin2:mockito-kotlin:$lib_version.mockito_kotlin"
+    ]
+
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Git Users</string>
+    <string name="title_activity_main">Git users</string>
+    <string name="name">Name: %1$s</string>
+    <string name="search_title">search user...</string>
+    <string name="search_hint">type...</string>
+</resources>
